@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+       
+@import url('https://fonts.googleapis.com/css2?family=Kalnia+Glaze:wght@100..700&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+        *{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .center{
+            width:100%;
+            height: 100vh;;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        body{
+            font-family: "Roboto", sans-serif;
+            font-style: normal;
+        }
+        .chat_bx{
+            width:400px;
+            height: 88vh;
+            box-shadow: 0 0 20px rgb(0,0,0,.1);
+            border-radius: 10px;
+        }
+        .chat_bx nav{
+width:100%;
+height:13.5%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+background: #010c42;
+border-radius: 10px 10px 0 0;
+        }
+        .chat_bx nav img{
+            width:50px;
+            border-radius: 10px 10px 0 0;
+        }
+        .chat_bx .btn{
+color: aliceblue;
+display: flex;
+align-items: center;
+padding-right: 10px;
+
+        }
+        .chat_bx .button{
+            font-size: 12px;
+            font-weight: 700;
+            margin-left: 30px;
+            cursor: pointer;
+            transition: 0.3s linear;
+
+        }
+        .chat_bx .button:hover
+{
+    transform: scale(1.3);
+}
+.chat_bx .button .ln
+{
+    transform: scale(1.3);
+}
+.chat_bx section{
+    width:100%;
+    height:77.5%;
+   padding: 0 10px;
+    /* border: 1px solid black; */
+}
+.chat_bx section .loading{
+    width:100%;
+   height:auto;
+   /* border: 1px solid black; */
+   align-items: center;
+   justify-content: center;
+   display: none;
+}
+.chat_bx section .loading .load{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.chat_bx section .loading .load h6{
+    width:8px;
+    height:8px;background: black;
+    border-radius: 50%;
+    margin:3px 5px;
+    animation: load 1s linear infinite;
+}
+.chat_bx section .loading .load h6:nth-child(2){
+    animation-delay: 0.33s;
+}
+.chat_bx section .loading .load h6:nth-child(3){
+    animation-delay: 0.66s;
+}
+@keyframes load {
+    0%{
+       transform: translateY(0px); 
+    }
+    50%{
+       transform: translateY(5px); 
+    }
+ 100%{
+       transform: translateY(0px); 
+    }
+}
+.chat_bx section #history{
+    width:100%;
+    height:93%;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+    /* border: 1px solid black; */
+    overflow-y: auto;
+    padding-bottom: 20px;
+}
+.chat_bx section #history::-webkit-scrollbar{
+    display: none;
+}
+.chat_bx section #history .ques_box ,.ans_box{
+    width:100%;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    /* border: 1px solid black; */
+    margin-top: 10px;
+}
+.chat_bx section #history .ans_box{
+    width:100%;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    /* border: 1px solid black; */
+}
+.chat_bx section #history p{
+    width:80%;
+    border: 1px solid black;
+    white-space:pre-wrap;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    word-break: break-all;
+    /* it help to align items in same line */
+    box-shadow: 5px 5px 10px rgb(0,0,0,.2),inset 5px 5px 10px rgb(0,0,0,.2);
+    border: none;
+border-radius: 10px;
+
+/* inset is used to give inner box property */
+}
+.chat_bx section #history .ans_box p{
+    padding-bottom: 30px;
+}
+.chat_bx section #history .ans_box i{
+   position: absolute;
+   bottom:10px;
+   left:70%;
+   cursor: pointer;
+}
+footer{
+    width:100%;
+
+    height:10%;
+    background: #010c42 ;
+    
+border-radius: 0 0 8px 8px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+footer .search{
+    width:90%;
+  
+padding: 8px 10px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #405da533,inset 5px 5px 10px rgba(0, 0, 0, 0.2);;
+    
+
+}
+
+footer .search input{
+   width:300px;
+   border: none;
+   outline:none;
+   padding-left: 10px;
+   font-weight: 700;
+}
+
+#input_icon{
+    cursor: pointer;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <div class="center">
+    <div class="chat_bx">
+<nav>
+    <img src="https://cdn-icons-png.flaticon.com/128/8943/8943377.png" alt="logo">
+    <div class="btn">
+        <div class="button">Hindi</div>
+        <div class="button ln">English</div>
+       
+    </div>
+</nav>
+   
+    <section>
+        <div class="loading">
+            <div class="load">
+        <h6></h6>
+        <h6></h6>
+        <h6></h6>
+            </div>
+        </div>
+        <div id="history" class="chatlist">
+<pre class="ques_box outgoing">
+<!-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing </p> -->
+</pre>
+<pre class="ans_box incoming">
+    <!-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing </p>
+     -->
+    <!-- <i class="bi bi-copy"></i> -->
+</pre>
+
+        </div>
+        </section>
+        <form action="#" id="typingform">
+        <footer>
+            
+            <div class="search">
+        <input type="text" placeholder="search..." id="input">
+        <i class="bi bi-search-heart-fill" id="input_icon" class="sendbox"></i></div>
+   
+        </footer>
+    </form>
+    </div>
+</div>
+<div>
+    <img src="https://cdn-icons-png.flaticon.com/128/724/724715.png">
+</div>
+<script src="main.js">
+ 
+
+
+
+
+
+</script>
+</body>
+</html>
